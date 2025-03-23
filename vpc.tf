@@ -11,17 +11,17 @@ resource "aws_subnet" "public-subnet" {
     Name = "public-subnet"
   }
 }
-resource "aws_internet_gateway" "main-igw" {
+resource "aws_internet_gateway" "my-igw" {
   vpc_id = aws_vpc.main-vpc.id
   tags = {
-    Name = "main-igw"
+    Name = "my-igw"
   }
 }
 resource "aws_route_table" "main-public-route-table" {
   vpc_id = aws_vpc.main-vpc.id
   route {
     cidr_block = var.public_cidr_block
-    gateway_id = aws_internet_gateway.main-igw.id
+    gateway_id = aws_internet_gateway.my-igw.id
     }
     tags = {
       Name = "main-public-route-table"
