@@ -3,6 +3,6 @@ resource "aws_instance" "main-instance" {
   instance_type = var.instance_type
   subnet_id     = aws_subnet.public-subnet.id
   tags = {
-    Name = "master-instance"
+    Name = "main-instance"
   }
 }
